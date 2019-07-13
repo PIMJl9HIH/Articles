@@ -1,12 +1,29 @@
-import React from 'react'
+import React, {Component} from 'react'
 import ArticleList from './ArticleList'
+import UserForm from './UserForm'
 
-function App({articles})  {
-  return (
-    <div>
-      <ArticleList  articles={articles}/>
-    </div>
-  )
+import Filters from '../Filters'
+
+
+
+class App extends Component {
+  
+  render() {
+
+    return (
+      <div>
+
+        <UserForm/>
+        <Filters articles={this.props.articles} />
+       <ArticleList  articles={this.props.articles} />
+
+      </div>
+    )
+  }
+
+  changeSelection = selection => this.setState({ selection })
+
+
 }
 
 export default App

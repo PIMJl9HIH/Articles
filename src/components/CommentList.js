@@ -1,5 +1,6 @@
-import React, {Component} from 'react'
+import React from 'react'
 import Comment from './Comment'
+import CommentForm from '../commentForm'
 import toggleOpen from '../decorators/toggleOpen'
 
 function CommentList ({comments = [], isOpen, toggleOpen }) {
@@ -18,9 +19,15 @@ function getBody({comments, isOpen}) {
   if(!comments || !comments.length) return <p>no comments yet</p>
 
   return (
-    <ul>
-      {comments.map( (comment)=> <li key={comment.id}><Comment comment={comment} /> </li>)}
-    </ul>
+    <div>
+      
+      <ul>
+        {comments.map( (comment)=> <li key={comment.id}><Comment comment={comment} /> </li>)}
+      </ul>
+
+      <CommentForm />
+    </div>
+
   )
 }
 

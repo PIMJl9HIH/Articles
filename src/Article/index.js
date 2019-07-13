@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
-import CommentList from './CommentList'
-import toggleOpen from '../decorators/toggleOpen'
+import CommentList from '../components/CommentList'
 import PropTypes from 'prop-types'
 
 
@@ -11,9 +10,10 @@ class Article extends Component {
       id: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       text: PropTypes.string
-    }).isRequired
+    }).isRequired,
+    isOpen: PropTypes.bool,
+    toggleOpen: PropTypes.func
   }
-
 
   render() {
     const {article, isOpen, toggleOpen} = this.props;
