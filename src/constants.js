@@ -1,0 +1,4 @@
+export const TYPE = {
+  DELETE_ARTICLE: 'DELETE_ARTICLE',
+  INCREMENT: 'INCREMENT'
+}

@@ -40,7 +40,7 @@ class CommentForm extends Component {
 
   handleChange = type => e => {
     const {value} = e.target
-    
+
     if(value.length > limits[type].max) return
     this.setState({
       [type]: value

@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
-import Article from '../Article'
+import {connect} from 'react-redux'
+import Article from './Article'
 import articleDecor from "../decorators/articleDecor";
 import PropTypes from 'prop-types'
 
@@ -31,4 +32,6 @@ class ArticleList extends Component {
 
 }
 
-export default articleDecor(ArticleList)
+export default connect( state => ({
+  articles: state.articles
+}))(articleDecor(ArticleList))
