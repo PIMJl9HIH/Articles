@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
-import {connect} from 'react-redux'
 import Article from './Article'
 import articleDecor from "../decorators/articleDecor";
 import PropTypes from 'prop-types'
+import {connect} from 'react-redux'
 
 class ArticleList extends Component {
 
@@ -14,7 +14,7 @@ class ArticleList extends Component {
   }
 
   render(){
-    const {openItemId, toggleOpenItem, articles} = this.props;
+    const {articles, openItemId, toggleOpenItem } = this.props;
     const articleElements = articles.map( (article) => <li key={article.id} >
       <Article
         article={article}
@@ -32,6 +32,16 @@ class ArticleList extends Component {
 
 }
 
-export default connect( state => ({
-  articles: state.articles
-}))(articleDecor(ArticleList))
+export default connect(({filters, articles}) => {
+  const {selected, dateRange: {from, to}} = filters
+
+  const filteredArticles =  articles.filter(article => {
+    const published = Date.parse(article.date)
+    return (!selected.length || selected.includes(article.id)) &&
+      (!from || !to || (published > from && published < to))
+  })
+
+  return {
+    articles: filteredArticles
+  }
+})(articleDecor(ArticleList))
