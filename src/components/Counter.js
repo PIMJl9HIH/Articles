@@ -2,8 +2,6 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {increment} from '../AC'
 
-
-
 class Counter extends Component {
 
   render() {

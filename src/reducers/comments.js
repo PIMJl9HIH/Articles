@@ -3,6 +3,8 @@ import {TYPE} from '../constants'
 
 const commentsMap = defaultComments.reduce((acc, comment) => {
   acc[comment.id] = comment
+  console.log(comment);
+  console.log(acc);
   return acc
 }, {})
 
