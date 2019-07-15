@@ -1,4 +1,4 @@
-import {articles as defaultArticles} from '../fixtures'
+import {normalizedArticles as defaultArticles} from '../fixtures'
 import {TYPE} from '../constants'
 
 export default  (articleState = defaultArticles, action) => {

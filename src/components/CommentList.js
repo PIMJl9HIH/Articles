@@ -22,7 +22,7 @@ function getBody({comments, isOpen}) {
     <div>
       
       <ul>
-        {comments.map( (comment)=> <li key={comment.id}><Comment comment={comment} /> </li>)}
+        {comments.map( (id) => <li key={id}><Comment id={id} /> </li>)}
       </ul>
 
       <CommentForm />
