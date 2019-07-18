@@ -1,8 +1,9 @@
 import {createStore, applyMiddleware} from 'redux'
 import reducer from '../reducers'
 import logger from '../middlewares/logger'
+import randomId from '../middlewares/randomId'
 
-const enhancer = applyMiddleware(logger)
+const enhancer = applyMiddleware(randomId, logger)
 
 const store = createStore(
   reducer,

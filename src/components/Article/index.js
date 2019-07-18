@@ -17,6 +17,10 @@ class Article extends Component {
     toggleOpen: PropTypes.func
   }
 
+  state = {
+    updateIndex: 0
+  }
+
   render() {
     const {article, isOpen, toggleOpen} = this.props;
     return (
@@ -43,9 +47,14 @@ class Article extends Component {
 
     return (<div>
       {article.text}
-      <CommentList comments={article.comments} />
+      <button onClick = {() => this.setState({updateIndex: this.state.updateIndex + 1})}>update</button>
+      <CommentList article = {article} ref = {this.setCommentsRef} key = {this.state.updateIndex}/>
       </div>
     )
+  }
+
+  setCommentsRef = ref => {
+
   }
 
 }
